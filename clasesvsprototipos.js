@@ -1,10 +1,34 @@
 class learningPaths {
-
+    constructor ({
+        name,
+        courses = [],
+    }) {
+        this.name = name;
+        this.courses = courses;
+    }
 }
 
-const escuelaDesarrolloWeb = new learningPaths;
-const escuelaDiseñoGrafico = new learningPaths;
-const escuelaDesarrolloVideoJuegos = new learningPaths;
+const escuelaDesarrolloWeb = new learningPaths({
+    name: 'Escuela de desarrollo web',
+    courses: [
+        'Curso definitivo de HTML y CSS',
+        'Curso practio de HTML y CSS',
+    ],
+});
+const escuelaDiseñoGrafico = new learningPaths({
+    name: 'Escuela de diseño grafico',
+    courses: [
+        'Curso de teoria del color',
+        'Curso de composicion visual',
+    ],
+});
+const escuelaDesarrolloVideoJuegos = new learningPaths({
+    name: 'Escuela de desarrollo de video juegos',
+    courses: [
+        'Escuela de Unity basico',
+        'Escuela de Unity avanzado',
+    ],
+});
 class Student {
     constructor ({
         name,
