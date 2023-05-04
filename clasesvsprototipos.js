@@ -1,3 +1,21 @@
+class Clases{
+    constructor ({
+        name,
+        classes = [],
+    }) {
+        this.name = name;
+        this.classes = classes;
+    }
+}
+class Course{
+    constructor ({
+        name,
+        classes = [],
+    }) {
+        this.name = name;
+        this.classes = classes;
+    }
+}
 class learningPaths {
     constructor ({
         name,
@@ -8,25 +26,52 @@ class learningPaths {
     }
 }
 
+// Clases
+
+const cursoProgramaionBasica = new Course({
+    name: 'Curso programacion basica',
+})
+
+const cursoDefinitivoHTML = new Course({
+    name: 'Curso definitivo de HTML y CSS',
+})
+
+const cursoPracticoHTML = new Course({
+    name: 'Curso practio de HTML y CSS',
+})
+
+const cursoTeoriaColor = new Course({
+    name: 'Curso de teoria del color',
+})
+
+const cursoUnityBasico = new Course({
+    name: 'Escuela de Unity basico',
+})
+
+const cursoUnityAvanzado = new Course({
+    name: 'Escuela de Unity avanzado',
+})
+
+// Escuelas
+
 const escuelaDesarrolloWeb = new learningPaths({
     name: 'Escuela de desarrollo web',
     courses: [
-        'Curso definitivo de HTML y CSS',
-        'Curso practio de HTML y CSS',
+        cursoProgramaionBasica,
+        cursoDefinitivoHTML,
     ],
 });
 const escuelaDiseñoGrafico = new learningPaths({
     name: 'Escuela de diseño grafico',
     courses: [
-        'Curso de teoria del color',
-        'Curso de composicion visual',
+        cursoTeoriaColor,
     ],
 });
 const escuelaDesarrolloVideoJuegos = new learningPaths({
     name: 'Escuela de desarrollo de video juegos',
     courses: [
-        'Escuela de Unity basico',
-        'Escuela de Unity avanzado',
+        cursoUnityBasico,
+        cursoUnityAvanzado,
     ],
 });
 class Student {
