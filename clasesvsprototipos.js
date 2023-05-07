@@ -15,6 +15,14 @@ class Course{
         this.name = name;
         this.classes = classes;
     }
+
+    get name() {
+        return this.name;
+    }
+
+    set name(newname) {
+        this.name = newname;
+    }
 }
 class learningPaths {
     constructor ({
