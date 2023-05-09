@@ -1,3 +1,13 @@
+class PlatziClass {
+    constructor ({
+        name,
+        videoID,
+    }) {
+        this.name = name;
+        this.videoID = videoID;
+    }
+}
+
 class Clases{
     constructor ({
         name,
