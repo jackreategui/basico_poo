@@ -10,7 +10,7 @@ function videoStop(id) {
     console.log('se pauso' + urlSecreta);
 }
 
-export class PlatziClass {
+class PlatziClass {
     constructor ({
         name,
         videoID,
@@ -41,9 +41,13 @@ class Course{
     constructor ({
         name,
         classes = [],
+        isFree = false,
+        lang = 'spanish',
     }) {
         this.name = name;
         this.classes = classes;
+        this.isFree = isFree;
+        this.lang = lang;
     }
 
     get name() {
@@ -69,6 +73,7 @@ class learningPaths {
 
 const cursoProgramaionBasica = new Course({
     name: 'Curso programacion basica',
+    isFree: true,
 })
 
 const cursoDefinitivoHTML = new Course({
@@ -77,6 +82,7 @@ const cursoDefinitivoHTML = new Course({
 
 const cursoPracticoHTML = new Course({
     name: 'Curso practio de HTML y CSS',
+    lang: 'english',
 })
 
 const cursoTeoriaColor = new Course({
@@ -139,7 +145,45 @@ class Student {
     }
 }
 
-const jack = new Student({
+class FreeStudent extends Student{
+    constructor (props) {
+        super (props);
+    }
+
+    approveCourse(newCourse) {
+        if (newCourse.isFree) {
+            this.approvedCourses.push(newCourse);
+        } else {
+            console.warn('No ' + this.name + ' no esta permitido');
+        }
+    }
+}
+
+class BasicStudent extends Student{
+    constructor (props) {
+        super (props);
+    }
+
+    approveCourse(newCourse) {
+        if (newCourse.lang !== 'english') {
+            this.approvedCourses.push(newCourse);
+        } else {
+            console.warn('No ' + this.name + ' no esta permitido');
+        }
+    }
+}
+
+class ExpertStudent extends Student{
+    constructor (props) {
+        super (props);
+    }
+
+    approveCourse(newCourse) {
+        this.approvedCourses.push(newCourse);
+    }
+}
+
+const jack = new ExpertStudent({
     name: 'Jack',
     age: 22,
     usename: 'jack.reategui',
@@ -151,7 +195,19 @@ const jack = new Student({
     ],
 })
 
-const samantha = new Student({
+const samantha = new FreeStudent({
+    name: 'Samantha',
+    age: 20,
+    usename: 'sam.reategui',
+    email: 'samtteguivargas',
+    instagram: 'sam.reategui',
+    learningPaths: [
+        escuelaDesarrolloVideoJuegos,
+        escuelaDesarrolloWeb,
+    ]
+})
+
+const sam = new BasicStudent({
     name: 'Samantha',
     age: 20,
     usename: 'sam.reategui',
