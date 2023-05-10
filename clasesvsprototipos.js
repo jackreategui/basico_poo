@@ -1,10 +1,30 @@
-class PlatziClass {
+function videoPlay(id) {
+    const urlSecreta = "https://www.youtube.com/watch";
+
+    console.log('si ' + urlSecreta);
+}
+
+function videoStop(id) {
+    const urlSecreta = "https://www.youtube.com/watch";
+
+    console.log('se pauso' + urlSecreta);
+}
+
+export class PlatziClass {
     constructor ({
         name,
         videoID,
     }) {
         this.name = name;
         this.videoID = videoID;
+    }
+
+    reproducir() {
+        videoPlay(this.videoID);
+    }
+
+    pausar() { 
+        videoStop(this.videoID);
     }
 }
 
@@ -31,9 +51,10 @@ class Course{
     }
 
     set name(newname) {
-        this.name = newname;
+        // this.name = newname;
     }
 }
+
 class learningPaths {
     constructor ({
         name,
